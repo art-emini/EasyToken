@@ -25,6 +25,7 @@ function createToken(options, callback) {
 
     options.database = options.database || null;
     options.lifetime = options.lifetime || null;
+    options.base64Encode = options.base64Encode || false;
 
     if(options.characters == "ABC") {
         characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -36,7 +37,7 @@ function createToken(options, callback) {
         characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     };
     
-    callback = callback || function () {}
+    callback = callback || function () {};
     for(var i = 0; i < 16; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
     };
@@ -46,6 +47,10 @@ function createToken(options, callback) {
     result = result.insert(4, "-");
     result = result.insert(9, "-");
     result = result.insert(14, "-");
+
+    if(options.base64Encode == true) {
+        result = Buffer.from(result).toString('base64');
+    };
 
     if(fs.existsSync(options.database)) {
         fs.appendFileSync(options.database, `\n${result} `, "utf-8");

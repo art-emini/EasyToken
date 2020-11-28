@@ -6,7 +6,9 @@ var options = {
     // The characters that are allowed in the token. Put ABC for letters, 123 for numbers, or ABC123 for both.
     characters: "ABC123",
     // How long the token will last for in the database in milliseconds. Takes #, and "Infinite" (OPTIONAL, ONLY WORKS IF YOU LISTED A DATABASE)
-    lifetime: 5000
+    lifetime: 5000,
+    // A boolean to determine if you want the result to be stored and return as a base64 encoded string.
+    base64Encode: true
 };
 
 

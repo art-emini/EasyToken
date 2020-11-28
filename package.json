@@ -1,6 +1,6 @@
 {
   "name": "@ksplat/easytoken",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Creates a random 'token' for anything!",
   "main": "EasyToken.js",
   "scripts": {
