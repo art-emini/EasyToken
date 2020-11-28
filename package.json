@@ -1,5 +1,5 @@
 {
-  "name": "easytoken",
+  "name": "@ksplat/easytoken",
   "version": "1.0.0",
   "description": "Creates a random 'token' for anything!",
   "main": "EasyToken.js",
