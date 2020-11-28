@@ -1,0 +1,30 @@
+{
+  "name": "easytoken",
+  "version": "1.0.0",
+  "description": "Creates a random 'token' for anything!",
+  "main": "EasyToken.js",
+  "scripts": {
+    "test": "nodemon test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuzzDevDev/EasyToken.git"
+  },
+  "keywords": [
+    "Token",
+    "Random",
+    "Random-token"
+  ],
+  "author": "Bleart Emini",
+  "license": "CC-BY-ND-4.0",
+  "bugs": {
+    "url": "https://github.com/BuzzDevDev/EasyToken/issues"
+  },
+  "homepage": "https://github.com/BuzzDevDev/EasyToken#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
