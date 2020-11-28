@@ -53,7 +53,7 @@ function createToken(options, callback) {
 
     if(options.lifetime != null && options.database == null) {
         return console.error("** ERROR: You cannot set a lifetime option if your database is not set. **")
-    }else{
+    }else if (options.lifetime != "Infinite"){
         setTimeout(() => {
             var data = fs.readFileSync(options.database, 'utf-8');
             var newValue = data.replace(result, '');
