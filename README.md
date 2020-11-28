@@ -2,6 +2,8 @@
 
 ### EasyToken allows you to create a simple 16 character token that can be used for anything!
 
+### NPM: https://www.npmjs.com/package/@ksplat/easytoken
+
 ## Features
 
 ### 1. Allows you to write and store the tokens in a file!
