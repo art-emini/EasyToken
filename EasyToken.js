@@ -72,10 +72,14 @@ function createToken(options, callback) {
     callback(result);
 
     return result;
-}
+};
 
+function createShort() {
+    return Math.floor(100000 + Math.random() * 900000);
+}
 
 
 module.exports = {
-    createToken: createToken
-}
+    createToken: createToken,
+    createShort: createShort
+};

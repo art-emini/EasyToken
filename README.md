@@ -21,6 +21,8 @@ var options = { <br>
     characters: "ABC123", <br>
     // How long the token will last for in the database in milliseconds. Takes #, and "Infinite" (OPTIONAL, ONLY WORKS IF YOU LISTED A DATABASE) <br>
     lifetime: 5000 <br>
+    // A boolean to determine if you want the result to be stored and return as a base64 encoded string. (OPTIONAL)
+    base64Encode: true
 }; <br>
 
 
