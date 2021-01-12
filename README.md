@@ -31,5 +31,9 @@ EasyToken.createToken(options, (token) => { <br>
     console.log(token) <br>
 }); <br>
 
+// OR create a simple 6 digit number! <br>
+
+var token = EasyToken.createShort(); <br>
+
 
 
