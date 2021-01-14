@@ -39,7 +39,7 @@ EasyToken.createToken(options, (token) => {
     console.log(token) 
 }); 
 
-// OR Create a 6 digit random number with no options. 
+// Create a 6 digit random number with no options. 
 
 var token = EasyToken.createShort(); 
 
