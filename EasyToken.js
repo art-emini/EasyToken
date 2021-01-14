@@ -26,6 +26,7 @@ function createToken(options, callback) {
     options.database = options.database || null;
     options.lifetime = options.lifetime || null;
     options.base64Encode = options.base64Encode || false;
+    options.chunked = options.chunked || false;
 
     if(options.characters == "ABC") {
         characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -43,10 +44,12 @@ function createToken(options, callback) {
     };
 
     
+    if (options.chunked == true) {
+        result = result.insert(4, "-");
+        result = result.insert(9, "-");
+        result = result.insert(14, "-");
+    }
     
-    result = result.insert(4, "-");
-    result = result.insert(9, "-");
-    result = result.insert(14, "-");
 
     if(options.base64Encode == true) {
         result = Buffer.from(result).toString('base64');
@@ -73,6 +76,10 @@ function createToken(options, callback) {
 
     return result;
 };
+
+/**
+ * @description Creates a 6 digit random number with no options.
+ */
 
 function createShort() {
     return Math.floor(100000 + Math.random() * 900000);
