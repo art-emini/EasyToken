@@ -12,7 +12,7 @@
 
 ## Example
 
-```
+```js
 
 const EasyToken = require("../EasyToken");
 
