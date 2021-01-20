@@ -35,13 +35,14 @@ var options = {
 };
 
 
-EasyToken.createToken(options, (token) => { 
-    console.log(token) 
-}); 
 
-// Create a 6 digit random number with no options. 
+EasyToken.createToken(options, (token) => {
+    console.log(token)
+});
 
-var token = EasyToken.createShort(); 
+// takes one parameter which determines if you want numbers(123) or letters(ABC)
+
+console.log(EasyToken.createShort("ABC"));
 
 
 

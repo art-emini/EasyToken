@@ -78,11 +78,25 @@ function createToken(options, callback) {
 };
 
 /**
- * @description Creates a 6 digit random number with no options.
+ * @param characters *Optional* Put "ABC" or "123", if undefined, it will return a number.
+ * @description Creates a 6 digit random number or letters with only one option to make it simple.
  */
 
-function createShort() {
-    return Math.floor(100000 + Math.random() * 900000);
+function createShort(c) {
+    var result = "";
+    var abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    c = c || "123"
+
+    if(c == "ABC") {
+        for(var i = 0; i < 6; i++ ) {
+            result += abc.charAt(Math.floor(Math.random() * abc.length));
+        };
+        return result;
+    }
+
+    if(c == "123") {
+        return Math.floor(100000 + Math.random() * 900000);
+    }
 }
 
 

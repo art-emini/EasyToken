@@ -24,7 +24,9 @@ EasyToken.createToken(options, (token) => {
     console.log(token)
 });
 
-console.log(EasyToken.createShort());
+// takes one parameter which determines if you want numbers(123) or letters(ABC)
+
+console.log(EasyToken.createShort("ABC"));
 
 
 
