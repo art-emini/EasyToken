@@ -9,6 +9,18 @@ String.prototype.insert = function(index, string) {
     return string + this;
 };
 
+function chunkStr(str, size) {
+    const numChunks = Math.ceil(str.length / size);
+    const chunks = new Array(numChunks);
+  
+    for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
+      chunks[i] = str.substr(o, size);
+    };
+  
+    return chunks;
+};
+
+
 /**
  * 
  * @param {object} options An object that holds the options such as the "database" to write to, and the "characters". If none present it will generate a 16 character long (Letters and numbers) token not including hyphens. (OPTIONAL)
@@ -27,6 +39,8 @@ function createToken(options, callback) {
     options.lifetime = options.lifetime || null;
     options.base64Encode = options.base64Encode || false;
     options.chunked = options.chunked || false;
+    options.chunkSize = options.chunkSize || null;
+    options.length = options.length || 16;
 
     if(options.characters == "ABC") {
         characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -39,16 +53,25 @@ function createToken(options, callback) {
     };
     
     callback = callback || function () {};
-    for(var i = 0; i < 16; i++ ) {
+    for(var i = 0; i < options.length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
     };
 
-    
-    if (options.chunked == true) {
-        result = result.insert(4, "-");
-        result = result.insert(9, "-");
-        result = result.insert(14, "-");
-    }
+    // chunk
+    if (options.chunked == true && options.length % 2 == 0 && options.chunkSize >= 1) {
+        result = chunkStr(result, options.chunkSize);
+        // now an array
+        result.forEach(subStr => {
+            var index = result.indexOf(subStr);
+            var l = result.length;
+            var old = subStr;
+            if(index != result.length - 1) {
+                result[index] = old + "-";
+            };
+        });
+        result = result.toString();
+        result = result.replace(/,/g, "");
+    };
     
 
     if(options.base64Encode == true) {
